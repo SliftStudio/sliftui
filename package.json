@@ -2,7 +2,7 @@
 	"name": "slift-monorepo",
 	"version": "0.0.0",
 	"private": true,
-	"description": "Monorepo for Slift: the @slift/ui Svelte component library, the slift CLI, and the sliftui meta package.",
+	"description": "Slift monorepo: the @slift/ui Svelte component library, the slift CLI, and the sliftui alias.",
 	"type": "module",
 	"scripts": {
 		"build": "pnpm --filter @slift/ui prepack && pnpm --filter slift build",

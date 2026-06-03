@@ -4,7 +4,7 @@
 	"type": "module",
 	"license": "MIT",
 	"author": "Slift",
-	"description": "The Slift command line. Today it scaffolds Slift UI components into your project, shadcn-style; built to grow into more.",
+	"description": "The Slift command line. Scaffolds Slift UI components into your project, shadcn-style, with more commands to come.",
 	"bin": {
 		"slift": "./dist/index.js"
 	},
@@ -20,7 +20,7 @@
 		"ui",
 		"shadcn"
 	],
-	"homepage": "https://sliftui.com",
+	"homepage": "https://slift.co",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SliftStudio/slift.git",

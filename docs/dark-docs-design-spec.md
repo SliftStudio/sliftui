@@ -1,8 +1,8 @@
-# Slift UI — Dark Docs Design Spec
+# Slift UI: Dark Docs Design Spec
 
-Reference for building the sliftui.com docs site. Mintlify-grade dark aesthetic with an emerald accent, distilled from a Mobbin study of Mintlify, OpenAI Platform, Supabase, GitBook, Vercel, and Cursor docs. Source: design-research subagent, kept here so we don't lose it.
+Reference for building the sliftui.com docs site. A Mintlify-grade dark look with an emerald accent, distilled from a Mobbin study of Mintlify, OpenAI Platform, Supabase, GitBook, Vercel, and Cursor docs. Source: design-research subagent, kept here so we don't lose it.
 
-## Layout — the dark-docs shell
+## Layout: the dark-docs shell
 
 Three columns under a thin sticky top bar.
 
@@ -84,7 +84,7 @@ Type scale weights/spacing: H1 32px/600/-0.02em, H2 24px/600/-0.015em, H3 20px/6
 - Backgrounds layer upward ~+5 lightness per level (bg → bg-subtle → surface → surface-hover); never pure black/white.
 - Borders do the work, not shadows (shadows nearly absent; at most a faint one on the ⌘K modal/dropdowns).
 - Emerald only on: logo glyph, links, active nav/TOC, section eyebrow, focus ring, primary button, success/"New" badges. Everything else neutral.
-- Prose column 768px, body 15px/1.7 — the airy line-height is a big part of the premium read.
+- Prose column 768px, body 15px/1.7. The airy line-height is a big part of the premium read.
 
 ## Standout references (dark mode)
 

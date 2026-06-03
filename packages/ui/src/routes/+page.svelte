@@ -35,7 +35,7 @@
 </script>
 
 <svelte:head>
-	<title>Slift UI — NumberRoll</title>
+	<title>Slift UI: NumberRoll</title>
 	<meta
 		name="description"
 		content="Polished, dependency-free Svelte 5 components from Slift. Starting with NumberRoll, an animated odometer-style number."

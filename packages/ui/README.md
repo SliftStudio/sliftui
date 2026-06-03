@@ -1,6 +1,6 @@
 # @slift/ui
 
-Polished, dependency-free Svelte 5 components from [Slift](https://sliftui.com). The first one is **NumberRoll**, an animated odometer-style number.
+Polished, dependency-free Svelte 5 components from [Slift](https://slift.co). First up: **NumberRoll**, an animated odometer-style number.
 
 ```bash
 npm i @slift/ui
@@ -38,10 +38,10 @@ It inherits font size, weight and color from its parent, so style the wrapper, n
 | ---------- | -------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
 | `value`    | `number`                   | required                 | The number to display. Changing it animates the roll.                                                                             |
 | `format`   | `Intl.NumberFormatOptions` | `{ useGrouping: false }` | Passed to `Intl.NumberFormat`. Add fraction digits, grouping, currency, etc.                                                      |
-| `locales`  | `Intl.LocalesArgument`     | —                        | Locale(s) for formatting.                                                                                                         |
+| `locales`  | `Intl.LocalesArgument`     | none                     | Locale(s) for formatting.                                                                                                         |
 | `duration` | `number`                   | `720`                    | Roll duration in milliseconds.                                                                                                    |
 | `trend`    | `1 \| 0 \| -1 \| 'auto'`   | `'auto'`                 | Roll direction. `'auto'` follows the value's change; `1` always up; `-1` always down; `0` lets each digit take its shortest path. |
-| `class`    | `string`                   | —                        | Extra class on the root element.                                                                                                  |
+| `class`    | `string`                   | none                     | Extra class on the root element.                                                                                                  |
 
 ### Examples
 

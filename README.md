@@ -2,11 +2,11 @@
 
 # ◆ Slift
 
-**Polished, dependency-free Svelte 5 components, by [Slift](https://sliftui.com).**
+**Polished, dependency-free Svelte 5 components, by [Slift](https://slift.co).**
 
 </div>
 
-Slift is a small, opinionated UI toolkit for Svelte 5. Components are designed to be copied into your project (so you own and can edit the code), or installed as a normal package if you prefer. The philosophy: real craft, no runtime dependencies, and code you would be happy to have written yourself.
+Slift is a small, opinionated UI toolkit for Svelte 5. Copy a component straight into your project so you own and can edit the code, or install it as a normal package if you prefer. No runtime dependencies, and code that reads like you wrote it yourself.
 
 This is the monorepo. It ships three packages:
 
@@ -16,7 +16,7 @@ This is the monorepo. It ships three packages:
 | [`slift`](packages/cli)       | `slift`     | The CLI. `npx slift add number-roll` copies a component's source into your project, shadcn-style. |
 | [`sliftui`](packages/sliftui) | `sliftui`   | A convenience alias that re-exports `@slift/ui` (matches the website name).                       |
 
-The `packages/ui` project is also the **[sliftui.com](https://sliftui.com)** docs/demo site (`src/routes`).
+The `packages/ui` project is also the docs and demo site (`src/routes`); it will live at **sliftui.com**.
 
 ## Quick start
 
@@ -54,7 +54,7 @@ pnpm check        # type-check everything
 
 ## Roadmap
 
-`@slift/ui` grows one well-made component at a time. The `slift` CLI is the front door and will gain more than `add` over time. Premium kits (Figma, Framer, Webflow, WordPress) may follow under the same brand.
+`@slift/ui` grows one component at a time, each one finished before the next. The `slift` CLI starts with `add` and will pick up more commands as it goes. Premium kits (Figma, Framer, Webflow, WordPress) may follow under the same brand.
 
 ## License
 

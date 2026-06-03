@@ -1,5 +1,5 @@
 {
-	"$schema": "https://sliftui.com/registry.json",
+	"$schema": "https://slift.co/registry.json",
 	"components": {
 		"number-roll": {
 			"name": "NumberRoll",

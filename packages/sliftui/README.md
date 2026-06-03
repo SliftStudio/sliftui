@@ -1,6 +1,6 @@
 # sliftui
 
-A convenience alias for **[Slift UI](https://sliftui.com)**. It re-exports everything from [`@slift/ui`](https://www.npmjs.com/package/@slift/ui), so you can install whichever name you prefer:
+A convenience alias for **[Slift UI](https://slift.co)**. It re-exports everything from [`@slift/ui`](https://www.npmjs.com/package/@slift/ui), so you can install whichever name you prefer:
 
 ```bash
 npm i sliftui

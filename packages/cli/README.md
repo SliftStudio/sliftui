@@ -1,8 +1,8 @@
 # slift
 
-The command line for [Slift](https://slift.co). It is the front door to the Slift toolkit, and it is built to grow.
+The command line for [Slift](https://slift.co). One way into the Slift toolkit, and built to grow.
 
-Today its first command, `add`, scaffolds [Slift UI](https://sliftui.com) components into your project, shadcn-style: instead of installing a runtime dependency, it **copies the component source directly into your project**, so you own the `.svelte` code and can edit it however you like. More commands will land over time.
+Its first command, `add`, scaffolds [Slift UI](https://slift.co) components into your project, shadcn-style: instead of installing a runtime dependency, it **copies the component source directly into your project**, so you own the `.svelte` code and can edit it however you like. More commands will land over time.
 
 ## Usage
 
@@ -44,4 +44,4 @@ Copied components have **zero runtime dependencies** and need **Svelte >= 5.16**
 
 ## Prefer a normal dependency?
 
-If you would rather install Slift UI as a package and import from it, use [`@slift/ui`](https://sliftui.com). The `slift` CLI and `@slift/ui` are two doors to the same components — pick whichever fits your project.
+If you would rather install Slift UI as a package and import from it, use [`@slift/ui`](https://slift.co). The `slift` CLI and `@slift/ui` reach the same components, so pick whichever fits your project.

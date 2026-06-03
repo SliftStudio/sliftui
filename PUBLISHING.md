@@ -14,7 +14,7 @@ The workspace has three publishable packages. They publish in this order because
 2. Create an npm **org named `slift`** (npmjs.com/org/create). This claims the `@slift` scope. If `slift` is taken, use `@slift-ui` or `@sliftui` and update the package names + this file.
 3. Decide how you publish: locally (simple) or via GitHub Actions with provenance (recommended once it is rolling).
 
-## Option A — publish locally (simplest for the first release)
+## Option A: publish locally (simplest for the first release)
 
 ```bash
 npm login                 # authenticate (2FA prompt)
@@ -28,7 +28,7 @@ pnpm --filter sliftui    publish --access public
 
 Each publish will prompt for your 2FA OTP. Add `--provenance` if you are publishing from a CI with OIDC; local publishes cannot attach provenance.
 
-## Option B — publish via GitHub Actions with provenance (recommended)
+## Option B: publish via GitHub Actions with provenance (recommended)
 
 Provenance attaches a cryptographic "built by this repo + commit" attestation to each package, visible on npm. This is the strongest authenticity signal.
 

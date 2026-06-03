@@ -74,7 +74,7 @@ function fail(message: string): never {
 function printHelp(): void {
 	const lines = [
 		'',
-		`  ${WORDMARK} ${pc.dim('— the Slift command line')}`,
+		`  ${WORDMARK} ${pc.dim('the Slift command line')}`,
 		'',
 		`  ${pc.bold('Usage')}`,
 		`    ${pc.cyan('slift')} ${pc.dim('<command> [options]')}`,
@@ -243,7 +243,7 @@ function printAddSummary(cwd: string, result: AddResult): void {
 		)
 	} else if (result.skipped.length > 0) {
 		console.log(
-			`  ${pc.dim('Nothing written — every file already existed. Pass')} ${pc.cyan('--overwrite')} ${pc.dim('to replace them.')}`,
+			`  ${pc.dim('Nothing written, every file already existed. Pass')} ${pc.cyan('--overwrite')} ${pc.dim('to replace them.')}`,
 		)
 	}
 	console.log('')
