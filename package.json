@@ -17,7 +17,7 @@
 	"homepage": "https://slift.co",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/SliftStudio/slift-ui.git"
+		"url": "git+https://github.com/SliftStudio/sliftui.git"
 	},
 	"license": "MIT",
 	"author": "Slift",
