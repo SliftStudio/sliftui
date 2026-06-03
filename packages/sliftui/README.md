@@ -10,7 +10,7 @@ npm i @slift/ui
 
 ```svelte
 <script>
-  import { NumberRoll } from 'sliftui'
+	import { NumberRoll } from 'sliftui'
 </script>
 ```
 

@@ -15,36 +15,51 @@ Three columns under a thin sticky top bar.
 
 ```css
 :root {
-  --color-bg:            #0A0A0B;
-  --color-bg-subtle:     #0E0E10;
-  --color-surface:       #151517;
-  --color-surface-hover: #1C1C1F;
-  --color-code-bg:       #0D0D0F;
-  --color-code-header:   #161618;
-  --color-inline-code:   #1E1E22;
-  --color-border:        #26262A;
-  --color-border-strong: #34343A;
-  --color-text:          #EDEDEF;
-  --color-text-secondary:#A1A1AA;
-  --color-text-muted:    #6E6E76;
-  --color-accent:         #34D399;   /* emerald-400, resting accent */
-  --color-accent-hover:   #10B981;   /* emerald-500, button/hover fill */
-  --color-accent-subtle:  rgba(52,211,153,0.10);
-  --color-accent-border:  rgba(52,211,153,0.30);
-  --color-accent-contrast:#04130C;   /* text on solid emerald */
-  --focus-ring: 0 0 0 2px rgba(52,211,153,0.50);
+	--color-bg: #0a0a0b;
+	--color-bg-subtle: #0e0e10;
+	--color-surface: #151517;
+	--color-surface-hover: #1c1c1f;
+	--color-code-bg: #0d0d0f;
+	--color-code-header: #161618;
+	--color-inline-code: #1e1e22;
+	--color-border: #26262a;
+	--color-border-strong: #34343a;
+	--color-text: #ededef;
+	--color-text-secondary: #a1a1aa;
+	--color-text-muted: #6e6e76;
+	--color-accent: #34d399; /* emerald-400, resting accent */
+	--color-accent-hover: #10b981; /* emerald-500, button/hover fill */
+	--color-accent-subtle: rgba(52, 211, 153, 0.1);
+	--color-accent-border: rgba(52, 211, 153, 0.3);
+	--color-accent-contrast: #04130c; /* text on solid emerald */
+	--focus-ring: 0 0 0 2px rgba(52, 211, 153, 0.5);
 
-  --font-sans: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --text-h1: 2rem; --text-h2: 1.5rem; --text-h3: 1.25rem; --text-h4: 1rem;
-  --text-body: 0.9375rem; --text-small: 0.8125rem; --text-code: 0.8125rem;
-  --leading-body: 1.7;
+	--font-sans: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+	--text-h1: 2rem;
+	--text-h2: 1.5rem;
+	--text-h3: 1.25rem;
+	--text-h4: 1rem;
+	--text-body: 0.9375rem;
+	--text-small: 0.8125rem;
+	--text-code: 0.8125rem;
+	--leading-body: 1.7;
 
-  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 12px;
-  --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem;
-  --space-5:1.5rem; --space-6:2rem; --space-8:3rem;
+	--radius-sm: 6px;
+	--radius-md: 10px;
+	--radius-lg: 12px;
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.5rem;
+	--space-6: 2rem;
+	--space-8: 3rem;
 
-  --sidebar-w: 256px; --toc-w: 224px; --content-max: 768px; --topbar-h: 60px;
+	--sidebar-w: 256px;
+	--toc-w: 224px;
+	--content-max: 768px;
+	--topbar-h: 60px;
 }
 ```
 

@@ -7,10 +7,16 @@
 	"scripts": {
 		"build": "pnpm --filter @slift/ui prepack && pnpm --filter slift build",
 		"check": "pnpm -r check",
-		"dev": "pnpm --filter @slift/ui dev"
+		"dev": "pnpm --filter @slift/ui dev",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
 	},
 	"packageManager": "pnpm@11.5.1",
 	"engines": {
 		"node": ">=20"
+	},
+	"devDependencies": {
+		"prettier": "^3.8.3",
+		"prettier-plugin-svelte": "^4.1.0"
 	}
 }

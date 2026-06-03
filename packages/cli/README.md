@@ -1,8 +1,8 @@
 # slift
 
-The command-line front door for [Slift UI](https://sliftui.com) — a Svelte component brand.
+The command line for [Slift](https://slift.co). It is the front door to the Slift toolkit, and it is built to grow.
 
-`slift` is shadcn-style: instead of installing a runtime dependency, it **copies component source files directly into your project**. You own the `.svelte` code and can edit it however you like.
+Today its first command, `add`, scaffolds [Slift UI](https://sliftui.com) components into your project, shadcn-style: instead of installing a runtime dependency, it **copies the component source directly into your project**, so you own the `.svelte` code and can edit it however you like. More commands will land over time.
 
 ## Usage
 
@@ -30,13 +30,13 @@ For each component name, `slift` looks it up in its registry, resolves the full 
 
 ### Options
 
-| Option              | Description                                        |
-| ------------------- | -------------------------------------------------- |
-| `--cwd <path>`      | Project root (default: current directory)          |
-| `--dir <path>`      | Destination directory, relative to `cwd`           |
-| `--overwrite`       | Overwrite files that already exist                 |
-| `--help`, `-h`      | Show help                                          |
-| `--version`, `-v`   | Show the version                                   |
+| Option            | Description                               |
+| ----------------- | ----------------------------------------- |
+| `--cwd <path>`    | Project root (default: current directory) |
+| `--dir <path>`    | Destination directory, relative to `cwd`  |
+| `--overwrite`     | Overwrite files that already exist        |
+| `--help`, `-h`    | Show help                                 |
+| `--version`, `-v` | Show the version                          |
 
 ## You own the code
 

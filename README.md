@@ -10,11 +10,11 @@ Slift is a small, opinionated UI toolkit for Svelte 5. Components are designed t
 
 This is the monorepo. It ships three packages:
 
-| Package | npm | What it is |
-| --- | --- | --- |
-| [`@slift/ui`](packages/ui) | `@slift/ui` | The component library. Starts with `NumberRoll`. |
-| [`slift`](packages/cli) | `slift` | The CLI. `npx slift add number-roll` copies a component's source into your project, shadcn-style. |
-| [`sliftui`](packages/sliftui) | `sliftui` | A convenience alias that re-exports `@slift/ui` (matches the website name). |
+| Package                       | npm         | What it is                                                                                        |
+| ----------------------------- | ----------- | ------------------------------------------------------------------------------------------------- |
+| [`@slift/ui`](packages/ui)    | `@slift/ui` | The component library. Starts with `NumberRoll`.                                                  |
+| [`slift`](packages/cli)       | `slift`     | The CLI. `npx slift add number-roll` copies a component's source into your project, shadcn-style. |
+| [`sliftui`](packages/sliftui) | `sliftui`   | A convenience alias that re-exports `@slift/ui` (matches the website name).                       |
 
 The `packages/ui` project is also the **[sliftui.com](https://sliftui.com)** docs/demo site (`src/routes`).
 
@@ -30,12 +30,12 @@ npx slift add number-roll
 
 ```svelte
 <script>
-  import { NumberRoll } from '@slift/ui'
-  let n = $state(0)
+	import { NumberRoll } from '@slift/ui'
+	let n = $state(0)
 </script>
 
 <button onclick={() => n++}>
-  <NumberRoll value={n} />
+	<NumberRoll value={n} />
 </button>
 ```
 

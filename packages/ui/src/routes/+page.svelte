@@ -53,7 +53,9 @@
 		</p>
 
 		<div class="figure" style="--size: clamp(3rem, 12vw, 6.5rem)">
-			<span class="money">$<NumberRoll value={revenue} format={{ useGrouping: true }} /></span>
+			<span class="money"
+				>$<NumberRoll value={revenue} format={{ useGrouping: true }} /></span
+			>
 			<div class="controls">
 				<button onclick={() => nudge(-1337)}>−</button>
 				<button onclick={shuffle}>shuffle</button>
@@ -88,7 +90,8 @@
 						>{`<script>
   import { NumberRoll } from '@slift/ui'
   let n = $state(0)
-</` + `script>
+</` +
+							`script>
 
 <button onclick={() => n++}>
   <NumberRoll value={n} />
@@ -111,7 +114,12 @@
 		background: #0a0a0b;
 		color: #e7e7ea;
 		font-family:
-			ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			'Segoe UI',
+			Roboto,
+			sans-serif;
 		-webkit-font-smoothing: antialiased;
 	}
 	main {

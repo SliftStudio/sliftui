@@ -1,48 +1,48 @@
 {
-  "name": "slift",
-  "version": "0.0.1",
-  "type": "module",
-  "license": "MIT",
-  "author": "Slift",
-  "description": "Add Slift UI components to your Svelte project. Copy-paste, you own the code.",
-  "bin": {
-    "slift": "./dist/index.js"
-  },
-  "files": [
-    "dist",
-    "registry"
-  ],
-  "keywords": [
-    "slift",
-    "svelte",
-    "cli",
-    "components",
-    "ui",
-    "shadcn"
-  ],
-  "homepage": "https://sliftui.com",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SliftStudio/slift.git",
-    "directory": "packages/cli"
-  },
-  "engines": {
-    "node": ">=20"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "check": "tsc --noEmit"
-  },
-  "dependencies": {
-    "picocolors": "^1.1.1"
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.0",
-    "tsup": "^8.3.5",
-    "typescript": "^5.7.2"
-  }
+	"name": "slift",
+	"version": "0.0.1",
+	"type": "module",
+	"license": "MIT",
+	"author": "Slift",
+	"description": "The Slift command line. Today it scaffolds Slift UI components into your project, shadcn-style; built to grow into more.",
+	"bin": {
+		"slift": "./dist/index.js"
+	},
+	"files": [
+		"dist",
+		"registry"
+	],
+	"keywords": [
+		"slift",
+		"svelte",
+		"cli",
+		"components",
+		"ui",
+		"shadcn"
+	],
+	"homepage": "https://sliftui.com",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SliftStudio/slift.git",
+		"directory": "packages/cli"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"picocolors": "^1.1.1"
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.0",
+		"tsup": "^8.3.5",
+		"typescript": "^5.7.2"
+	}
 }

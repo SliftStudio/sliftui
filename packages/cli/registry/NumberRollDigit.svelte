@@ -75,7 +75,9 @@
 <span class="nr-col" transition:grow style:--nr-dur="{duration}ms">
 	<span class="nr-track" style:transform="translateY({-pos}em)">
 		{#each cells as cell (cell.k)}
-			<span class="nr-cell" style:transform="translateY({cell.k}em)">{cell.label}</span>
+			<span class="nr-cell" style:transform="translateY({cell.k}em)"
+				>{cell.label}</span
+			>
 		{/each}
 	</span>
 </span>
