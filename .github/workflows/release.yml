@@ -1,8 +1,8 @@
 name: Release
 
-# Manual publish to npm with provenance. Run this from the Actions tab after
-# bumping versions. Requires an NPM_TOKEN secret (a granular automation token
-# with publish access to the @slift scope and the slift / sliftui packages).
+# Manual publish of @slift/ui to npm with provenance. Run from the Actions tab
+# after bumping the version. Requires an NPM_TOKEN secret (a granular automation
+# token with publish access to the @slift scope).
 on:
   workflow_dispatch:
 
@@ -23,17 +23,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-
-      # Publish library first (sliftui depends on it), then the CLI, then the alias.
       - name: Publish @slift/ui
-        run: pnpm --filter @slift/ui publish --provenance --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Publish slift (CLI)
-        run: pnpm --filter slift publish --provenance --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Publish sliftui (alias)
-        run: pnpm --filter sliftui publish --provenance --access public --no-git-checks
+        run: pnpm publish --provenance --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

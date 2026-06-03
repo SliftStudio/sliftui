@@ -1,7 +1,0 @@
-packages:
-  - 'packages/*'
-
-# esbuild ships a native binary via a postinstall script; allow it so vite,
-# svelte-package and tsup can build.
-allowBuilds:
-  esbuild: true

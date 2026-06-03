@@ -77,28 +77,18 @@
 
 	<section class="install">
 		<h2>Add it to your project</h2>
-		<div class="cols">
-			<div>
-				<h3>Copy the source (own it)</h3>
-				<pre><code>npx slift add number-roll</code></pre>
-				<p>Drops the <code>.svelte</code> files straight into your project.</p>
-			</div>
-			<div>
-				<h3>Or install the package</h3>
-				<pre><code>npm i @slift/ui</code></pre>
-				<pre><code
-						>{`<script>
+		<pre><code>npm i @slift/ui</code></pre>
+		<pre><code
+				>{`<script>
   import { NumberRoll } from '@slift/ui'
   let n = $state(0)
 </` +
-							`script>
+					`script>
 
 <button onclick={() => n++}>
   <NumberRoll value={n} />
 </button>`}</code
-					></pre>
-			</div>
-		</div>
+			></pre>
 	</section>
 
 	<footer>
@@ -228,15 +218,8 @@
 		font-size: 1.5rem;
 		letter-spacing: -0.02em;
 	}
-	.cols {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1.5rem;
+	.install pre {
 		margin-top: 1.5rem;
-	}
-	.cols h3 {
-		font-size: 1rem;
-		color: #d4d4d8;
 	}
 	pre {
 		background: #18181b;
@@ -263,8 +246,7 @@
 		font-size: 0.85rem;
 	}
 	@media (max-width: 40rem) {
-		.stats,
-		.cols {
+		.stats {
 			grid-template-columns: 1fr;
 		}
 	}
