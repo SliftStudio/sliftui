@@ -23,7 +23,7 @@
   "homepage": "https://sliftui.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/slift/slift.git",
+    "url": "git+https://github.com/SliftStudio/slift.git",
     "directory": "packages/cli"
   },
   "engines": {
