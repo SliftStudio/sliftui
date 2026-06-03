@@ -1,0 +1,11 @@
+{
+  "$schema": "https://sliftui.com/registry.json",
+  "components": {
+    "number-roll": {
+      "name": "NumberRoll",
+      "description": "Animated odometer-style number that rolls each digit in the number's trend direction.",
+      "files": ["NumberRoll.svelte", "NumberRollDigit.svelte"],
+      "dir": "components"
+    }
+  }
+}

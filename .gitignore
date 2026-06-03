@@ -1,0 +1,23 @@
+node_modules
+.DS_Store
+
+# build output
+dist
+.svelte-kit
+build
+package
+
+# env / logs
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# editor
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
