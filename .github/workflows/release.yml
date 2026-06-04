@@ -17,17 +17,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Node first, so pnpm (pinned via package.json packageManager) installs
-      # against a Node new enough for its engines requirement.
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - uses: pnpm/action-setup@v4
+      # Install pnpm directly under Node 24 (pnpm 11.5.1 needs Node >=22.13,
+      # which pnpm/action-setup can't satisfy: it runs under the older Actions
+      # runtime Node).
+      - run: npm install -g pnpm@11.5.1
       - run: pnpm install --frozen-lockfile
       # Build the publishable dist/ (svelte-package + publint) so the publish
       # step can skip lifecycle scripts and just upload the result.
       - run: pnpm run prepack
-      # OIDC trusted publishing needs npm >= 11.5.1; Node 22 ships npm 10.
+      # OIDC trusted publishing needs npm >= 11.5.1.
       - run: npm install -g npm@latest
       - name: Publish @slift/ui
         run: npm publish --provenance --access public --ignore-scripts
