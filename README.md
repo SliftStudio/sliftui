@@ -54,6 +54,10 @@ It inherits font size, weight and color from its parent, so style the wrapper, n
 <NumberRoll value={n} duration={450} />
 ```
 
+## Changelog
+
+Release notes are in [CHANGELOG.md](https://github.com/SliftStudio/sliftui/blob/main/CHANGELOG.md) (also bundled with the package) and on the [GitHub releases](https://github.com/SliftStudio/sliftui/releases) page.
+
 ## Credits
 
 NumberRoll's rolling-digit animation was inspired by [NumberFlow](https://number-flow.barvian.me/) by Maxwell Barvian. NumberRoll is an independent, dependency-free implementation built for Svelte 5.
