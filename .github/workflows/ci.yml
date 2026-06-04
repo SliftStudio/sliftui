@@ -10,11 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      # Node first, so pnpm (pinned via package.json packageManager) installs
+      # against a Node new enough for its engines requirement.
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
+      - uses: pnpm/action-setup@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm run check
       - run: pnpm build
