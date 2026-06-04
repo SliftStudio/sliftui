@@ -10,7 +10,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write # required for OIDC trusted publishing
+  id-token: write # required for OIDC trusted publishing + provenance
 
 jobs:
   publish:
@@ -30,7 +30,5 @@ jobs:
       - run: pnpm run prepack
       # OIDC trusted publishing needs npm >= 11.5.1.
       - run: npm install -g npm@latest
-      # No --provenance: it requires a public source repo, and this repo is
-      # private. OIDC trusted publishing still authenticates without a token.
       - name: Publish @slift/ui
-        run: npm publish --access public --ignore-scripts
+        run: npm publish --provenance --access public --ignore-scripts
