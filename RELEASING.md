@@ -59,7 +59,7 @@ git push origin main --follow-tags
 
 ## 5. Publish
 
-Trigger the Release workflow, which builds and publishes to npm with provenance over OIDC:
+Trigger the Release workflow, which builds and publishes to npm over OIDC trusted publishing (no token). Provenance is intentionally off while this repo is private (npm provenance requires a public source repo); if it ever goes public, add `--provenance` back to the publish step.
 
 ```bash
 gh workflow run release.yml -R SliftStudio/sliftui
