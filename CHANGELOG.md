@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.0.3] - 2026-06-05
+
+### Changed
+
+- Published with provenance now that the source repo is public, and `CHANGELOG.md` is bundled with the package and linked from the README. No changes to the component itself.
+
 ## [0.0.2] - 2026-06-04
 
 ### Changed
