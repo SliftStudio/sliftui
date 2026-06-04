@@ -8,9 +8,9 @@
 	// pos = digit + 10 * wraps. `wraps` is a whole-turn accumulator that only
 	// changes to bend a roll the trend's way (and to wrap 9<->0), so the resting
 	// position always reads straight off `digit` (correct on the server, with no
-	// state to seed from a prop). Cells are absolutely placed at their own offset
-	// and only a window of them around the current position is rendered, so the
-	// window shifting never disturbs the in-flight transform.
+	// state to seed from a prop). Cells are absolutely placed at their own offset;
+	// only the cells the column is actually rolling across are rendered (one cell
+	// at rest, the span of the roll while it moves), so the DOM stays light.
 	let {
 		value,
 		digit,
@@ -24,6 +24,12 @@
 	} = $props()
 
 	let wraps = $state(0)
+	// The two most recent pre-roll positions. Kept while a roll is in flight so
+	// the render window still spans the cells the track travels through, and the
+	// window still covers a digit caught mid-roll if the value reverses before it
+	// settles. Cleared on transitionend so a resting column collapses to one cell.
+	let lastPos = $state<number | null>(null)
+	let prevPos = $state<number | null>(null)
 	let prev: { value: number; digit: number } | undefined
 	const pos = $derived(digit + 10 * wraps)
 
@@ -34,6 +40,7 @@
 		const d = digit
 		untrack(() => {
 			if (prev && d !== prev.digit) {
+				const oldPos = prev.digit + 10 * wraps
 				const dir = trend === 'auto' ? Math.sign(v - prev.value) : trend
 				// Steps to climb from the old digit up to the new one.
 				const up = (((d - prev.digit) % 10) + 10) % 10
@@ -42,23 +49,46 @@
 				const delta = dir > 0 ? up : dir < 0 ? up - 10 : d - prev.digit
 				// Bend the straight step (d - prev.digit) into `delta` via whole turns.
 				wraps += (delta - (d - prev.digit)) / 10
+				prevPos = lastPos
+				lastPos = oldPos
 			}
 			prev = { value: v, digit: d }
 		})
 	})
 
-	// A window of cells around the current position, each labelled with its own
-	// digit (its offset mod 10). Wide enough to cover a full single roll either
-	// way plus a little slack for a mid-roll reversal.
-	const WINDOW = 10
+	// Render only the cells the column is travelling across: the current position
+	// and the positions it is rolling from (kept until the roll settles). No
+	// margin is needed: a cell outside this span sits at a whole em or more from
+	// the 1em window, so the overflow clip hides it completely the whole way
+	// through a monotonic roll. At rest this is a single cell; reduced motion
+	// never rolls, so it is always just the resting digit.
 	const cells = $derived.by(() => {
-		const centre = Math.round(pos)
+		const cur = Math.round(pos)
+		if (prefersReducedMotion.current) {
+			return [{ k: cur, label: ((cur % 10) + 10) % 10 }]
+		}
+		let lo = cur
+		let hi = cur
+		for (const p of [lastPos, prevPos]) {
+			if (p === null) continue
+			const r = Math.round(p)
+			if (r < lo) lo = r
+			if (r > hi) hi = r
+		}
 		const out: { k: number; label: number }[] = []
-		for (let k = centre - WINDOW; k <= centre + WINDOW; k++) {
+		for (let k = lo; k <= hi; k++) {
 			out.push({ k, label: ((k % 10) + 10) % 10 })
 		}
 		return out
 	})
+
+	// Once the roll finishes, drop the from-positions so the window collapses back
+	// to the resting cell (the leftover cells are off-screen by now, so removing
+	// them is invisible).
+	function settle() {
+		prevPos = null
+		lastPos = null
+	}
 
 	// A leading column that appears (or leaves) grows its width from/to zero while
 	// fading, so the row's width change reads as smooth.
@@ -73,7 +103,11 @@
 </script>
 
 <span class="nr-col" transition:grow style:--nr-dur="{duration}ms">
-	<span class="nr-track" style:transform="translateY({-pos}em)">
+	<span
+		class="nr-track"
+		style:transform="translateY({-pos}em)"
+		ontransitionend={settle}
+	>
 		{#each cells as cell (cell.k)}
 			<span class="nr-cell" style:transform="translateY({cell.k}em)"
 				>{cell.label}</span
