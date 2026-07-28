@@ -21,3 +21,16 @@ Guidance for AI agents and contributors working in this repo.
 ## Releasing
 
 Follow [RELEASING.md](./RELEASING.md). In short: bump the version, add a CHANGELOG entry, commit, tag, push, then run the `release.yml` workflow (npm OIDC trusted publishing, no token).
+
+## Naming constraints (permanent, do not relitigate)
+
+- The GitHub org is `SliftStudio`, not `slift`. The `slift` username was taken
+  by an inactive account in 2014 and GitHub will not release inactive names, so
+  every literal GitHub path carries `SliftStudio`. Everywhere else the name is
+  lowercase `slift`.
+- The npm scope is `@slift`. The unscoped `slift` package name is blocked by
+  npm's similarity filter (too close to sift, split, eslint). Only a trademark
+  appeal could override it, and that is deferred indefinitely.
+
+Both cost real effort to rediscover and neither can be changed, so treat them as
+settled rather than as open naming questions.
