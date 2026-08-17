@@ -1,0 +1,17 @@
+{
+  "name": "Slift UI",
+  "slug": "slift-ui",
+  "team": "Tavlean",
+  "client": null,
+  "aliases": [
+    "Slift UI"
+  ],
+  "purpose": "",
+  "status": "started",
+  "linear": {
+    "project_id": "aaee2544-b561-4b3d-9b21-556c89fe7626",
+    "url": "https://linear.app/artusion/project/slift-ui-c38d2393df9f"
+  },
+  "github": "SliftStudio/sliftui",
+  "updated": "2026-08-17"
+}
