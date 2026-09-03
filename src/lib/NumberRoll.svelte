@@ -10,9 +10,10 @@
 	// in the direction the whole number moved, wrapping 9<->0 as needed, like a
 	// real odometer; pass `trend` to force a direction (1 up, -1 down) or 0 to let
 	// each digit take its own shortest path. Plain DOM (no custom element / shadow
-	// DOM), so the prerendered page stays hydration-clean. A soft mask fades the
-	// top and bottom edges so rolling digits dissolve at the boundary. Inherits
-	// font size, weight and colour from its parent; honours prefers-reduced-motion.
+	// DOM), so the prerendered page stays hydration-clean. Each digit column has a
+	// soft mask just above and below the glyph box so rolling digits dissolve at
+	// the boundary; symbols never roll, so they are left unmasked. Inherits font
+	// size, weight and colour from its parent; honours prefers-reduced-motion.
 	let {
 		value,
 		format,
@@ -82,29 +83,17 @@
 
 <style>
 	.nr {
-		/* Soft fade at the top and bottom edges so a rolling digit dissolves into
-		   the boundary instead of hard-clipping at the overflow cut (the same
-		   mask-gradient trick NumberFlow uses). Sized small enough to leave the
-		   resting digit crisp. */
-		--nr-mask: 0.16em;
+		/* Height of the fade ramp above and below each digit column (the same
+		   mask-gradient trick NumberFlow uses). The ramp sits outside the 1em
+		   glyph box, so the resting digit is never touched by it; cells are
+		   spaced one pitch apart so a neighbouring digit starts exactly where the
+		   ramp ends. Override --nr-mask on the element to tune the dissolve. */
+		--nr-mask: 0.25em;
+		--nr-pitch: calc(1em + var(--nr-mask));
 		display: inline-flex;
 		font-variant-numeric: tabular-nums;
 		line-height: 1;
 		vertical-align: baseline;
-		-webkit-mask-image: linear-gradient(
-			to bottom,
-			transparent,
-			#000 var(--nr-mask),
-			#000 calc(100% - var(--nr-mask)),
-			transparent
-		);
-		mask-image: linear-gradient(
-			to bottom,
-			transparent,
-			#000 var(--nr-mask),
-			#000 calc(100% - var(--nr-mask)),
-			transparent
-		);
 	}
 	.nr-sym {
 		display: inline-block;

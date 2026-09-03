@@ -58,10 +58,11 @@
 
 	// Render only the cells the column is travelling across: the current position
 	// and the positions it is rolling from (kept until the roll settles). No
-	// margin is needed: a cell outside this span sits at a whole em or more from
-	// the 1em window, so the overflow clip hides it completely the whole way
-	// through a monotonic roll. At rest this is a single cell; reduced motion
-	// never rolls, so it is always just the resting digit.
+	// margin is needed: cells sit one pitch apart and the window extends exactly
+	// half a pitch gap (the mask height) past the 1em glyph box, so a cell outside
+	// this span starts at the window's edge and its ink never shows. At rest this
+	// is a single cell; reduced motion never rolls, so it is always just the
+	// resting digit.
 	const cells = $derived.by(() => {
 		const cur = Math.round(pos)
 		if (prefersReducedMotion.current) {
@@ -102,17 +103,30 @@
 	}
 </script>
 
+<!--
+	Layout: .nr-col is the 1ch x 1em box that takes part in layout (a hidden
+	in-flow "0" gives it a real text baseline, so the row aligns with surrounding
+	text). .nr-win is the clip-and-mask window, one mask height taller than the
+	column on each side, so the fade ramp lies entirely outside the resting
+	glyph box and the resting digit stays crisp. Cells are spaced one pitch
+	(1em + mask) apart, which puts a neighbouring cell's box exactly at the
+	window's edge: invisible at rest, dissolving through the ramp as it rolls in.
+-->
 <span class="nr-col" transition:grow style:--nr-dur="{duration}ms">
-	<span
-		class="nr-track"
-		style:transform="translateY({-pos}em)"
-		ontransitionend={settle}
-	>
-		{#each cells as cell (cell.k)}
-			<span class="nr-cell" style:transform="translateY({cell.k}em)"
-				>{cell.label}</span
-			>
-		{/each}
+	<span class="nr-win">
+		<span
+			class="nr-track"
+			style:transform="translateY(calc({-pos} * var(--nr-pitch)))"
+			ontransitionend={settle}
+		>
+			{#each cells as cell (cell.k)}
+				<span
+					class="nr-cell"
+					style:transform="translateY(calc({cell.k} * var(--nr-pitch)))"
+					>{cell.label}</span
+				>
+			{/each}
+		</span>
 	</span>
 </span>
 
@@ -122,7 +136,29 @@
 		position: relative;
 		width: 1ch;
 		height: 1em;
+	}
+	.nr-col::before {
+		content: '0';
+		visibility: hidden;
+	}
+	.nr-win {
+		position: absolute;
+		inset: calc(-1 * var(--nr-mask)) 0;
 		overflow: hidden;
+		-webkit-mask-image: linear-gradient(
+			to bottom,
+			transparent,
+			#000 var(--nr-mask),
+			#000 calc(100% - var(--nr-mask)),
+			transparent
+		);
+		mask-image: linear-gradient(
+			to bottom,
+			transparent,
+			#000 var(--nr-mask),
+			#000 calc(100% - var(--nr-mask)),
+			transparent
+		);
 	}
 	.nr-track {
 		position: absolute;
@@ -131,7 +167,9 @@
 	}
 	.nr-cell {
 		position: absolute;
-		inset: 0;
+		top: var(--nr-mask);
+		left: 0;
+		right: 0;
 		height: 1em;
 		line-height: 1em;
 		text-align: center;

@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### Fixed
+
+- The edge-fade mask no longer touches resting glyphs. It used to cover the whole row with its ramp inside the 1em line box, which softened the bottom of every digit and faded the descender of a comma and the bar of a currency sign. The mask now lives on each digit column in a window one mask height taller than the glyph box, so the ramp only ever meets a digit in flight; symbols are not masked at all. `--nr-mask` (default 0.25em) still tunes the dissolve.
+- Digit columns now carry a real text baseline, so the number sits on the same baseline as surrounding text instead of about 0.125em above it.
+
 ## [0.0.3] - 2026-06-05
 
 ### Changed
